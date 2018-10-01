@@ -1,0 +1,42 @@
+CREATE TABLE Utilisateur (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(50) NOT NULL,
+    nom VARCHAR(50) NOT NULL,
+    motdepasse VARCHAR(50),
+    role VARCHAR(10)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE Note (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    note REAL,
+    nbEssais INT(3),
+    idEleve INT(6),
+    idQCM INT(6)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE Qcm (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50),
+    idAuteur INT(6)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE Question (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    texte VARCHAR(250),
+    idQcm INT(6),
+    idAuteur INT(6),
+    idTheme INT(6)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE Reponse (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    texte VARCHAR(250),
+    bonneReponse BOOLEAN,
+    idQuestion INT(6)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE Theme (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50),
+) DEFAULT CHARSET=utf8;
+
